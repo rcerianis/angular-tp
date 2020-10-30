@@ -1,0 +1,21 @@
+$bleuCiel: SkyBlue;
+
+.navigation {
+    background-color: lightgreen;
+    &.toto {
+        background-color: $bleuCiel;
+
+    }
+    ul {
+        list-style: none;
+        li {
+            background-color: aqua;
+        }
+    }
+}
+
+a {
+    &:hover {
+        background-color: yellow;
+    }
+}

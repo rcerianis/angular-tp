@@ -7,7 +7,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { StarComponent } from './shared/ui/star/star.component';
-import { WelcomeComponent } from './welcome.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [

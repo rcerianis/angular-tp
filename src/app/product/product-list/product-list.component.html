@@ -1,2 +1,15 @@
 <p>product-list works!</p>
+<p>{{ this.getPageTitle() }}</p>
+<p>{{ 12345679*36 }}</p>
+
+<ul *ngIf="products && products.length">
+    <li>Toto {{ products }}</li>
+    <li *ngFor="let product of products">{{product}}</li>
+</ul>
+
+<ul *ngIf="objets && objets.length">
+    <li>Totobjets {{ objets }}</li>
+    <li *ngFor="let objet of objets">{{objet.id}} {{ objet.name}}</li>
+</ul>
+
 <hr/>
