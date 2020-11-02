@@ -18,6 +18,7 @@ export interface IProduct {
 })
 export class ProductListComponent implements OnInit {
   private pageTitle: string = 'Product list';
+  public a: number = 3.14;
   public searchTerm: string = '';
   public displayImage: boolean = true;
   public products: IProduct[] = [
