@@ -10,12 +10,15 @@ $bleuCiel: SkyBlue;
         list-style: none;
         li {
             background-color: aqua;
+            color: white;
         }
     }
 }
 
 a {
     &:hover {
-        background-color: yellow;
+        background-color: rgb(132, 185, 221) {
+
+        };
     }
 }
