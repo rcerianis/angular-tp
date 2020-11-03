@@ -31,8 +31,12 @@
               <td>{{ product.releaseDate }}</td>
               <td>{{ product.description }}</td>
               <td>{{ product.price }}</td>
-              <td>{{ product.starRating }}</td>
-          </tr>
+              <td><app-star
+                 [rating]="product.starRating"
+                  (ratingClicked)="product.starRating = $event"></app-star></td>
+                <td><app-star
+                [(rating)]="product.starRating">x</app-star></td>
+             </tr>
         </tbody>
     </table>
     <ng-template #noProductTemplate>
