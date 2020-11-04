@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../../shared/model/product';
 import { ProductService } from '../../shared/model/product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -12,10 +13,10 @@ export class ProductListComponent implements OnInit {
   public a: number = 3.14;
   public searchTerm: string = '';
   public displayImage: boolean = true;
-  public products: IProduct[] = [];
+  public products$: Observable<IProduct[]>;
 
-  constructor(public productService: ProductService) {
-    this.products = productService.getProducts();
+  constructor(private productService: ProductService) {
+    this.products$ = productService.getProducts$();
   }
 
   ngOnInit(): void {
@@ -26,11 +27,7 @@ export class ProductListComponent implements OnInit {
   public toggleImage(): void {
     this.displayImage = !this.displayImage;
   }
-  public getFilteredProducts(): IProduct[] {
-    const term = this.searchTerm.toLowerCase();
-    return this.products.filter(product => {
-      const name = product.productName.toLowerCase();
-      return name.indexOf(term) > -1;
-    });
+  public refreshProducts(): void {
+    this.productService.fetch();
   }
 }

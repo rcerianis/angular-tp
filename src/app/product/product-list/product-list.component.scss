@@ -1,11 +1,41 @@
+h3 {
+    text-align: center;
+}
+
 .filter-form {
-    background-color: white;
+    border-bottom: 1px solid #CCC;
+    padding: 2rem;
+    margin-bottom: 30px;
 }
 
-thead {
-    background-color: #CCC;
-}
+table {
+    width: 100%;
 
-tbody {
-    background-color: whitesmoke;
+    thead {
+        background-color: #CCC;
+        tr {
+            td {
+                text-align: center;
+                font-weight: bold;
+                padding: 0.5rem;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            &:nth-child(even) {
+                background-color: rgb(240, 240, 240);
+            }
+            td {
+                text-align: center;
+                padding: 0.5rem;
+            }
+            &:hover {
+                color: rebeccapurple;
+                background-color: rgba(2, 2, 2, 0.137);
+            }
+        }
+        background-color: whitesmoke;
+    }
 }

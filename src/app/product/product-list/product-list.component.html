@@ -5,42 +5,48 @@
     {{ searchTerm }}
 </div>
 
-<div>
-    <button (click)="toggleImage()">Show/Hide images</button>
+<div *ngIf="products$ | async as products" >
+    <button (click)="toggleImage()">
+        <span *ngIf="displayImage; else noImage">Hide</span>
+        <ng-template #noImage>
+            Show
+        </ng-template>
+    </button>
     <table *ngIf="products.length > 0; else noProductTemplate">
         <thead>
             <tr>
-            <td>ID</td>
-            <!--td *ngIf="displayImage">Image</td-->
-            <td *ngIf="displayImage">Image</td>
-            <td>Name</td>
-            <td>Code</td>
-            <td>Release date</td>
-            <td>Description</td>
-            <td>Price</td>
-            <td>Rating</td>
-        </tr>
+                <td>ID</td>
+                <!--td *ngIf="displayImage">Image</td-->
+                <td *ngIf="displayImage">Image</td>
+                <td>Name</td>
+                <td>Code</td>
+                <td>Release date</td>
+                <td>Description</td>
+                <td>Price</td>
+                <td>Rating</td>
+            </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products | productSearch:searchTerm">
-              <td>#{{ product.id }}</td>
-              <!--td *ngIf="displayImage"><img src="{{ product.imageUrl }}" width="30px"></td-->
-              <td *ngIf="displayImage"><img [src]="product.imageUrl" width="30px"></td>
-              <td>{{ product.productName }}</td>
-              <td>{{ product.productCode }}</td>
-              <td>{{ product.releaseDate }}</td>
-              <td>{{ product.description }}</td>
-              <td>{{ product.price }}</td>
-              <td><app-star
-                 [rating]="product.starRating"
-                  (ratingClicked)="product.starRating = $event"></app-star></td>
-                <td><app-star
-                [(rating)]="product.starRating">x</app-star></td>
-             </tr>
+            <tr *ngFor="let product of products | productSearch:searchTerm">
+                <td>#{{ product.id }}</td>
+                <!--td *ngIf="displayImage"><img src="{{ product.imageUrl }}" width="30px"></td-->
+                <td *ngIf="displayImage"><img [src]="product.imageUrl" width="30px"></td>
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productCode }}</td>
+                <td>{{ product.releaseDate }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <app-star [rating]="product.starRating" (ratingClicked)="product.starRating = $event"></app-star>
+                </td>
+            </tr>
         </tbody>
     </table>
     <ng-template #noProductTemplate>
         <h4>No product</h4>
     </ng-template>
 </div>
-<hr/>
+<div>
+    <button (click)="refreshProducts()">Refresh products</button>
+</div>
+<hr />
