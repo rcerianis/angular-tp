@@ -16,9 +16,15 @@ $bleuCiel: SkyBlue;
 }
 
 a {
+    //display: block;
+
     &:hover {
         background-color: rgb(132, 185, 221) {
 
         };
+    }
+
+    &.activated {
+        background-color: orange;
     }
 }

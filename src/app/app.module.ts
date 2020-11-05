@@ -12,6 +12,7 @@ import { StarComponent } from './shared/ui/star/star.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProductSearchPipe } from './product/product-search.pipe';
 import { TestComponent } from './test/test/test.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TestComponent } from './test/test/test.component';
     StarComponent,
     WelcomeComponent,
     ProductSearchPipe,
-    TestComponent
+    TestComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
