@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ProductSearchPipe } from './product/product-search.pipe';
 import { TestComponent } from './test/test/test.component';
 import { ProductComponent } from './product/product.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,16 @@ import { ProductComponent } from './product/product.component';
     WelcomeComponent,
     ProductSearchPipe,
     TestComponent,
-    ProductComponent
+    ProductComponent,
+    PageNotFoundComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
